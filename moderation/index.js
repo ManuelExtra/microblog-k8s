@@ -11,7 +11,7 @@ const eventHandler = async (type, data) => {
     data.status = data.content.includes('orange') ? 'rejected' : 'approved';
 
     // Send event
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
       type: 'CommentModerated',
       data
     })
@@ -29,7 +29,7 @@ app.post('/events', async (req, res) => {
 
 app.listen(4003, async () => {
 
-  const response = await axios.get('http://localhost:4005/events').catch(err => console.log(err));
+  const response = await axios.get('http://event-bus-srv:4005/events').catch(err => console.log(err));
 
   for (let index = 0; index < response.data.events.length; index++) {
     const event = response.data.events[index];

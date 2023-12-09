@@ -13,7 +13,7 @@ app.post("/events", (req, res) => {
   axios.post("http://posts-clusterip-srv:4000/events", event).catch((err) => {
     console.log(err.message);
   });
-  axios.post("http://comment-srv:4001/events", event).catch((err) => {
+  axios.post("http://comments-srv:4001/events", event).catch((err) => {
     console.log(err.message);
   });
   axios.post("http://query-srv:4002/events", event).catch((err) => {

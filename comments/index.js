@@ -50,7 +50,7 @@ app.post("/events", async (req, res) => {
     comments[commentIndex].status = status;
 
     // Send event
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
       type: 'CommentUpdated',
       data: {
         id,
